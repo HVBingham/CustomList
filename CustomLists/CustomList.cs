@@ -8,11 +8,14 @@ namespace CustomLists
 {
     public class CustomList<T>
     {
-        public void Add(int number)
+        public void Add(T value)
         {
 
         }
+        public void Count(T value)
+        {
 
+        }
 
     }
 }

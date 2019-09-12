@@ -8,7 +8,7 @@ namespace UnitTestCustomList
     public class UnitTest1
     {
         [TestMethod]
-        public void Add_AddToCustomList_IntGoesToIndexZero()
+        public void Add_AddToCustomList_IntGoesToIndexOne()
         {
             // arrange
             CustomList<int> Numbers = new CustomList<int>();
@@ -16,11 +16,32 @@ namespace UnitTestCustomList
             int actual;
             //act
             Numbers.Add(1);
-            actual = Numbers[0];
-
+            Numbers.Add(2);
+            Numbers.Add(3);
+            actual = Numbers[1];
             //assert
             Assert.AreEqual(expected, actual);
-
         }
+        [TestMethod]
+        public void Add_AddToCustomList_AddFiveorMoreToCustomList()
+        {
+            CustomList<int> Numbers = new CustomList<int>();
+            int expected = 5;
+            int actual;
+
+            Numbers.Add(0);
+            Numbers.Add(1);
+            Numbers.Add(2);
+            Numbers.Add(3);
+            Numbers.Add(4);
+            Numbers.Add(5);
+            actual = Numbers[5];
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+
+
     }
 }
