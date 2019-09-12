@@ -10,45 +10,65 @@ namespace CustomLists
     {
         T[] array;
         int count;
+        int capacity;
         public T this[int i]
         {
             get { return array[i]; }
             set { array[i] = value; }
         }
+   
         public int Count
         {
-            get
-            {
-                return count;
-            }
+            get { return count;}
         }
-
-
 
         public CustomList()
         {
-            array = new T[4];
+            capacity = 4;
+            array = new T[capacity];
             count = 0;
+            
         }
-     
+        private void IncreaseCapacity()
+        {
+            capacity += capacity;
+        }
         public void DoubleArraySize()
         {
-            T[] placeHolder = new T[4 * 2];
-            for (int i = 0; i < 4; i++)
+            ;
+            T[] placeHolder = new T[capacity];
+            for (int i = 0; i < count; i++)
             {
+                
                 placeHolder[i]= array[i];
             }
             array = placeHolder;
         }
         public void Add(T value)
         {
-           if(count == )
+            if (CheckCapacity())
             {
-
-                
-            }
-
+                DoubleArraySize();
+            }        
+                array[count] = value;
+                 count++;
         }
     
+        public bool CheckCapacity()
+        {
+            if (capacity <= count)
+            {
+                IncreaseCapacity();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+
+
     }
 }

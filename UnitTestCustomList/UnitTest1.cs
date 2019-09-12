@@ -12,13 +12,13 @@ namespace UnitTestCustomList
         {
             // arrange
             CustomList<int> Numbers = new CustomList<int>();
-            int expected = 2;
+            int expected = 1;
             int actual;
             //act
             Numbers.Add(1);
-            Numbers.Add(2);
+            Numbers.Add(4);
             Numbers.Add(3);
-            actual = Numbers[1];
+            actual = Numbers[0];
             //assert
             Assert.AreEqual(expected, actual);
         }
@@ -26,7 +26,7 @@ namespace UnitTestCustomList
         public void Add_AddToCustomList_AddFiveorMoreToCustomList()
         {
             CustomList<int> Numbers = new CustomList<int>();
-            int expected = 0;
+            int expected = 1;
             int actual;
 
             Numbers.Add(5);
@@ -35,7 +35,13 @@ namespace UnitTestCustomList
             Numbers.Add(2);
             Numbers.Add(1);
             Numbers.Add(0);
-            actual = Numbers[5];
+            Numbers.Add(5);
+            Numbers.Add(4);
+            Numbers.Add(3);
+            Numbers.Add(2);
+            Numbers.Add(1);
+            Numbers.Add(0);
+            actual = Numbers[10];
 
             Assert.AreEqual(expected, actual);
         }
