@@ -15,6 +15,13 @@ namespace CustomLists
             get { return array[i]; }
             set { array[i] = value; }
         }
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
 
 
 
@@ -24,19 +31,24 @@ namespace CustomLists
             count = 0;
         }
      
-
+        public void DoubleArraySize()
+        {
+            T[] placeHolder = new T[4 * 2];
+            for (int i = 0; i < 4; i++)
+            {
+                placeHolder[i]= array[i];
+            }
+            array = placeHolder;
+        }
         public void Add(T value)
         {
-            if (count == 0)
+           if(count == )
             {
+
                 
             }
 
         }
-        public void Count(T value)
-        {
-
-        }
-
+    
     }
 }
