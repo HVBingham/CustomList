@@ -39,7 +39,6 @@ namespace CustomLists
             T[] placeHolder = new T[capacity];
             for (int i = 0; i < count; i++)
             {
-                
                 placeHolder[i]= array[i];
             }
             array = placeHolder;
@@ -67,6 +66,14 @@ namespace CustomLists
             }
         }
 
+        public void Remove()
+        {
+
+        }
+        public void RemoveAt()
+        {
+
+        }
 
 
 

@@ -26,7 +26,7 @@ namespace UnitTestCustomList
         public void Add_AddToCustomList_AddFiveorMoreToCustomList()
         {
             CustomList<int> Numbers = new CustomList<int>();
-            int expected = 1;
+            int expected = 0;
             int actual;
 
             Numbers.Add(5);
@@ -35,13 +35,8 @@ namespace UnitTestCustomList
             Numbers.Add(2);
             Numbers.Add(1);
             Numbers.Add(0);
-            Numbers.Add(5);
-            Numbers.Add(4);
-            Numbers.Add(3);
-            Numbers.Add(2);
-            Numbers.Add(1);
-            Numbers.Add(0);
-            actual = Numbers[10];
+
+            actual = Numbers[5];
 
             Assert.AreEqual(expected, actual);
         }
@@ -51,12 +46,50 @@ namespace UnitTestCustomList
         {
             CustomList<int> Numbers = new CustomList<int>();
             int expected = 1;
-            int acutal;
+            int actual;
 
             Numbers.Add(2);
-            acutal = Numbers.Count;
+            actual = Numbers.Count;
 
-            Assert.AreEqual(expected, acutal);
+            Assert.AreEqual(expected, actual);
         }
+        public void Remove_AddItemsToList_RomoveAnItemValue()
+        {
+            CustomList<int> Numbers = new CustomList<int>();
+            int expected = 3;
+            int actual;
+
+            Numbers.Add(5);
+            Numbers.Add(4);
+            Numbers.Add(2);
+            Numbers.Add(3);
+            Numbers.Add(1);
+            Numbers.Remove(3);
+            actual = Numbers[2];
+
+
+
+            Assert.AreEqual(expected, actual);
+        }
+        public void Remove_AddItemsToList_RemoveAnItemAtIndex()
+        {
+            CustomList<int> Numbers = new CustomList<int>();
+            int expected = 4;
+            int actual;
+
+            Numbers.Add(9);
+            Numbers.Add(7);
+            Numbers.Add(5);
+            Numbers.Add(3);
+            Numbers.Add(1);
+            Numbers.Add(2);
+            Numbers.Add(4);
+            Numbers.RemoveAt(5);
+            actual = Numbers[5];
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        
     }
 }
