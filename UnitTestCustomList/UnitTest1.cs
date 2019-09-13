@@ -53,10 +53,11 @@ namespace UnitTestCustomList
 
             Assert.AreEqual(expected, actual);
         }
-        public void Remove_AddItemsToList_RomoveAnItemValue()
+     
+        public void Remove_RemoveItemFromList_RomoveAnItemValueFromList()
         {
             CustomList<int> Numbers = new CustomList<int>();
-            int expected = 3;
+            int expected = 1;
             int actual;
 
             Numbers.Add(5);
@@ -65,31 +66,55 @@ namespace UnitTestCustomList
             Numbers.Add(3);
             Numbers.Add(1);
             Numbers.Remove(3);
-            actual = Numbers[2];
+            actual = Numbers[3];
 
 
 
             Assert.AreEqual(expected, actual);
         }
-        public void Remove_AddItemsToList_RemoveAnItemAtIndex()
+        public void Remove_RemoveItemFromList_RemoveMultipleItemValuesFromList()
         {
             CustomList<int> Numbers = new CustomList<int>();
-            int expected = 4;
+            int expected = 7;
             int actual;
 
-            Numbers.Add(9);
-            Numbers.Add(7);
             Numbers.Add(5);
+            Numbers.Add(4);
+            Numbers.Add(2);
             Numbers.Add(3);
             Numbers.Add(1);
-            Numbers.Add(2);
-            Numbers.Add(4);
-            Numbers.RemoveAt(5);
-            actual = Numbers[5];
+            Numbers.Add(0);
+            Numbers.Add(6);
+            Numbers.Add(7);
+            Numbers.Add(9);
+            Numbers.Add(8);
+            Numbers.Remove(6);
+            Numbers.Remove(1);
+            Numbers.Remove(0);
+            actual = Numbers[4];
 
             Assert.AreEqual(expected, actual);
         }
 
+        public void Remove_RemoveItemsFromList_CountTheNewList()
+        {
+            CustomList<int> Numbers = new CustomList<int>();
+            int expected = 3;
+            int actual;
+
+            Numbers.Add(5);
+            Numbers.Add(4);
+            Numbers.Add(2);
+            Numbers.Add(9);
+            Numbers.Add(8);
+            Numbers.Remove(9);
+            Numbers.Remove(8);
+            actual = Numbers.Count;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+    }
         
     }
 }

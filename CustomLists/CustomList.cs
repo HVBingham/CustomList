@@ -8,7 +8,7 @@ namespace CustomLists
 {
     public class CustomList<T>
     {
-        T[] array;
+         T[] array;
         int count;
         int capacity;
         public T this[int i]
@@ -33,9 +33,8 @@ namespace CustomLists
         {
             capacity += capacity;
         }
-        public void DoubleArraySize()
+        private void DoubleArraySize()
         {
-            ;
             T[] placeHolder = new T[capacity];
             for (int i = 0; i < count; i++)
             {
@@ -53,7 +52,7 @@ namespace CustomLists
                  count++;
         }
     
-        public bool CheckCapacity()
+        private bool CheckCapacity()
         {
             if (capacity <= count)
             {
@@ -66,16 +65,27 @@ namespace CustomLists
             }
         }
 
-        public void Remove()
+        public void Remove(T Value)
         {
 
+
+
+
         }
-        public void RemoveAt()
+  
+
+        private void MoveIndexOver(T Value)
         {
+            
+           for( int i = 0; i < count; i++)
+            {
+                array[i] = array[i + 1];
+            }
+
+
+
 
         }
-
-
 
     }
 }
