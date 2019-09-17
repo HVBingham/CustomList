@@ -29,6 +29,14 @@ namespace CustomLists
             count = 0;
             
         }
+        public IEnumerator<T> GetEnumerator(T Value)
+        {
+
+            for(int i=0; i<count; i++)
+            {
+                yield return array[i];
+            }
+        }
         private void IncreaseCapacity()
         {
             capacity += capacity;
@@ -64,26 +72,29 @@ namespace CustomLists
                 return false;
             }
         }
-
+      
+    
         public void Remove(T Value)
         {
-
-
+            for(int i = 0; i<count;i++)
+                if (Value.Equals(array[i]))
+                {
+                    MoveIndexOver(i);
+                    count--;
+                }
 
 
         }
   
 
-        private void MoveIndexOver(T Value)
+        private void MoveIndexOver(int intex)
         {
-            
-           for( int i = 0; i < count; i++)
+            int i;
+           for(i=intex; i < count; i++)
             {
                 array[i] = array[i + 1];
             }
-
-
-
+            array[i] = default(T);
 
         }
 

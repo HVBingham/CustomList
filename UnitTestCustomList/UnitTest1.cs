@@ -53,7 +53,7 @@ namespace UnitTestCustomList
 
             Assert.AreEqual(expected, actual);
         }
-     
+        [TestMethod]
         public void Remove_RemoveItemFromList_RomoveAnItemValueFromList()
         {
             CustomList<int> Numbers = new CustomList<int>();
@@ -72,6 +72,7 @@ namespace UnitTestCustomList
 
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
         public void Remove_RemoveItemFromList_RemoveMultipleItemValuesFromList()
         {
             CustomList<int> Numbers = new CustomList<int>();
@@ -95,7 +96,7 @@ namespace UnitTestCustomList
 
             Assert.AreEqual(expected, actual);
         }
-
+        [TestMethod]
         public void Remove_RemoveItemsFromList_CountTheNewList()
         {
             CustomList<int> Numbers = new CustomList<int>();
@@ -116,5 +117,5 @@ namespace UnitTestCustomList
 
     }
         
-    }
+    
 }
