@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomLists
 {
-    public class CustomList<T>
+    public class CustomList<T>:IEnumerable
     {
          T[] array;
         int count;
@@ -29,14 +29,7 @@ namespace CustomLists
             count = 0;
             
         }
-        public IEnumerator<T> GetEnumerator(T Value)
-        {
-
-            for(int i=0; i<count; i++)
-            {
-                yield return array[i];
-            }
-        }
+        
         private void IncreaseCapacity()
         {
             capacity += capacity;
@@ -72,11 +65,11 @@ namespace CustomLists
                 return false;
             }
         }
-      
-    
+
+
         public void Remove(T Value)
         {
-            for(int i = 0; i<count;i++)
+            for (int i = 0; i < count; i++)
                 if (Value.Equals(array[i]))
                 {
                     MoveIndexOver(i);
@@ -85,8 +78,6 @@ namespace CustomLists
 
 
         }
-  
-
         private void MoveIndexOver(int intex)
         {
             int i;
@@ -97,6 +88,18 @@ namespace CustomLists
             array[i] = default(T);
 
         }
+        public override string ToString()
+        {
+            return "";
+        }
+        public IEnumerable<T> GetEnumorator()
+        {
+            for(int index = 0; index< array.Length; index++)
+            {
+                yield return array[index];
+            }
 
+        }
     }
+
 }

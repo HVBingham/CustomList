@@ -114,7 +114,23 @@ namespace UnitTestCustomList
 
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void ToString_TakeInItems_ReturnThemAsAString()
+        {
+            CustomList<int> Numbers = new CustomList<int>();
+            string expected = "543210";
+            string actual;
 
+            Numbers.Add(5);
+            Numbers.Add(4);
+            Numbers.Add(3);
+            Numbers.Add(2);
+            Numbers.Add(1);
+            Numbers.Add(0);
+            actual= Numbers.ToString();
+
+            Assert.AreEqual(expected, actual);
+        }
     }
         
     
