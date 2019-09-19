@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace CustomLists
 {
@@ -13,15 +14,28 @@ namespace CustomLists
         int capacity;
         public T this[int i]
         {
-            get { return array[i]; }
-            set { array[i] = value; }
+            get {
+                if (i < 0 || i >= count)
+                {
+                    throw new ArgumentOutOfRangeException("Nope.No go.");
+                }
+                return array[i]; }
+            set
+            {
+                if (i >= 0 || i < count)
+                { array[i] = value; }
+            }
         }
    
         public int Count
         {
             get { return count;}
         }
-
+        public int Capacity
+        {
+            get{ return capacity; }
+            set{ capacity = value;}
+        }
         public CustomList()
         {
             capacity = 4;
@@ -88,18 +102,23 @@ namespace CustomLists
             array[i] = default(T);
 
         }
-        public override string ToString()
+       
+       
+        public IEnumerator GetEnumerator()
         {
-            return "";
-        }
-        public IEnumerable<T> GetEnumorator()
-        {
-            for(int index = 0; index< array.Length; index++)
+            for(int index = 0; index<Count; index++)
             {
                 yield return array[index];
             }
 
         }
+       public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+
+        }
+       
     }
 
 }

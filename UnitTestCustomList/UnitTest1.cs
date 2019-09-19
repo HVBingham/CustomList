@@ -114,11 +114,12 @@ namespace UnitTestCustomList
 
             Assert.AreEqual(expected, actual);
         }
+
         [TestMethod]
         public void ToString_TakeInItems_ReturnThemAsAString()
         {
             CustomList<int> Numbers = new CustomList<int>();
-            string expected = "543210";
+            string expected = "5,4,3,2,1,0";
             string actual;
 
             Numbers.Add(5);
@@ -128,6 +129,38 @@ namespace UnitTestCustomList
             Numbers.Add(1);
             Numbers.Add(0);
             actual= Numbers.ToString();
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ToString_TakeInItem_ReturnItAsAString()
+        {
+            CustomList<int> Numbers = new CustomList<int>();
+            string expected = "5";
+            string actual;
+
+            Numbers.Add(5);
+           
+            actual = Numbers.ToString();
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ToString_TakeInItemsAndRemoveItems_ReturnThemAsAString()
+        {
+            CustomList<int> Numbers = new CustomList<int>();
+            string expected = "5,4,2,0";
+            string actual;
+
+            Numbers.Add(5);
+            Numbers.Add(4);
+            Numbers.Add(3);
+            Numbers.Add(2);
+            Numbers.Add(1);
+            Numbers.Add(0);
+            Numbers.Remove(3);
+            Numbers.Remove(1);
+            actual = Numbers.ToString();
 
             Assert.AreEqual(expected, actual);
         }
