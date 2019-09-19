@@ -107,12 +107,30 @@ namespace CustomLists
             string placeholder;
             for(int i =0; i<Count; i++)
             {
-                sb.Append(array[i] +",");
+                sb.Append(array[i]);
             }
             placeholder = sb.ToString();
             return placeholder;
         }
-       
+        public static CustomList<T> operator + (CustomList<T> list1, CustomList<T> list2)
+        {
+            CustomList<T> placeHolder = list1;
+            for(int i = 0; i <list2.Count; i++)
+            {
+                placeHolder.Add(list2[i]);
+            }
+            return placeHolder;
+        }
+        public static CustomList<T> operator - (CustomList<T> list1, CustomList<T> list2)
+        {
+            CustomList<T> placeholder = list1;
+            for(int i=0; i<list2.Count; i++)
+            {
+                placeholder.Remove(list2[i]);
+            }
+            return placeholder;
+        }
+    
     }
 
 }

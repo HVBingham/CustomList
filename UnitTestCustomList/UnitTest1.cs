@@ -1,6 +1,5 @@
-﻿using System;
+﻿using CustomLists;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CustomLists;
 
 namespace UnitTestCustomList
 {
@@ -119,7 +118,7 @@ namespace UnitTestCustomList
         public void ToString_TakeInItems_ReturnThemAsAString()
         {
             CustomList<int> Numbers = new CustomList<int>();
-            string expected = "5,4,3,2,1,0,";
+            string expected = "543210";
             string actual;
 
             Numbers.Add(5);
@@ -164,6 +163,72 @@ namespace UnitTestCustomList
 
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void AddLists_TakeInTwoLists_CombineListsToOne()
+        {
+            CustomList<int> list1 = new CustomList<int>();
+            CustomList<int> list2 = new CustomList<int>();
+            CustomList<int> expected = new CustomList<int>();
+            CustomList<int> combinedLists = new CustomList<int>();
+            expected.Add(1);
+            expected.Add(2);
+            expected.Add(3);
+            expected.Add(4);
+            expected.Add(5);
+            expected.Add(6);
+            CustomList<int> actual = new CustomList<int>();
+
+            list1.Add(1);
+            list1.Add(2);
+            list1.Add(3);
+            list2.Add(4);
+            list2.Add(5);
+            list2.Add(6);
+            combinedLists= list1+list2;
+            actual = combinedLists;
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void AddLists_TakeInTwoLists_CountCombinedLists()
+        {
+            CustomList<int> list1 = new CustomList<int>();
+            CustomList<int> list2 = new CustomList<int>();
+            CustomList<int> combinedLists = new CustomList<int>();
+            int expected = 6;
+            int actual;
+          
+            list1.Add(1);
+            list1.Add(2);
+            list1.Add(3);
+            list2.Add(4);
+            list2.Add(5);
+            list2.Add(6);
+            combinedLists  = list1 + list2;
+            actual = combinedLists.Count;
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void AddLists_TakeInTwoLists_CountCombinedListsIfOneListIsEmpty()
+        {
+            CustomList<int> list1 = new CustomList<int>();
+            CustomList<int> list2 = new CustomList<int>();
+            CustomList<int> combinedLists = new CustomList<int>();
+            int expected = 3;
+            int actual;
+
+            list1.Add(1);
+            list1.Add(2);
+            list1.Add(3);
+            combinedLists = list1 + list2;
+            actual = combinedLists.Count;
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        
+
     }
         
     
