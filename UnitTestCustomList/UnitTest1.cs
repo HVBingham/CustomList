@@ -41,7 +41,29 @@ namespace UnitTestCustomList
         }
 
         [TestMethod]
-        public void Count_AddItemsToList_CountTheList()
+        public void Add_AddToCustomList_AddFiveorMoreToCustomList1()
+        {
+            CustomList<int> Numbers = new CustomList<int>();
+            int expected = 13;
+            int actual;
+
+            Numbers.Add(5);
+            Numbers.Add(4);
+            Numbers.Add(3);
+            Numbers.Add(2);
+            Numbers.Add(1);
+            Numbers.Add(10);
+            Numbers.Add(13);
+            Numbers.Add(12);
+            Numbers.Add(11);
+            Numbers.Add(18);
+
+            actual = Numbers[6];
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Add_AddItemsToList_CountTheList()
         {
             CustomList<int> Numbers = new CustomList<int>();
             int expected = 1;
@@ -164,7 +186,33 @@ namespace UnitTestCustomList
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
+        public void ToString_TakeInItemsAndRemoveItems_ReturnThemAsAString1()
+        {
+            CustomList<int> Numbers = new CustomList<int>() { 3, 9, 2, 7, 2, 1, 6 };
+            string expected = "3927216";
+            string actual;
+
+            
+            actual = Numbers.ToString();
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
         public void AddLists_TakeInTwoLists_CombineListsToOne()
+        {
+            CustomList<int> list1 = new CustomList<int>() { 0, 1, 3, 4, 5, 6, 7 };
+            CustomList<int> list2 = new CustomList<int>() { 9, 8, 3 };
+            int expected = 9;
+            int actual;
+
+            CustomList<int> combinedLists = new CustomList<int>();
+           
+            combinedLists = list1 + list2;
+            actual = combinedLists[7];
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void AddLists_TakeInTwoLists_CombineListsToOne1()
         {
             CustomList<int> list1 = new CustomList<int>();
             CustomList<int> list2 = new CustomList<int>();
@@ -231,6 +279,21 @@ namespace UnitTestCustomList
            
             subtractedLists = list1 - list2;
             actual = subtractedLists[1];
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void SubtractLists_RemoveSameValue_RemoveOneListFromAnother2()
+        {
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3, 6, 9, 10};
+            CustomList<int> list2 = new CustomList<int>() { 4, 5, 2, 10};
+            CustomList<int> subtractedLists = new CustomList<int>();
+            int expected = 6;
+            int actual;
+
+
+            subtractedLists = list1 - list2;
+            actual = subtractedLists[2];
 
             Assert.AreEqual(expected, actual);
         }
