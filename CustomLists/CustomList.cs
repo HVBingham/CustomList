@@ -26,7 +26,6 @@ namespace CustomLists
                 { array[i] = value; }
             }
         }
-   
         public int Count
         {
             get { return count;}
@@ -41,9 +40,7 @@ namespace CustomLists
             capacity = 4;
             array = new T[capacity];
             count = 0;
-            
         }
-        
         private void IncreaseCapacity()
         {
             capacity += capacity;
@@ -64,9 +61,8 @@ namespace CustomLists
                 DoubleArraySize();
             }        
                 array[count] = value;
-                 count++;
+                count++;
         }
-    
         private bool CheckCapacity()
         {
             if (capacity <= count)
@@ -79,8 +75,6 @@ namespace CustomLists
                 return false;
             }
         }
-
-
         public void Remove(T Value)
         {
             for (int i = 0; i < count; i++)
@@ -89,8 +83,6 @@ namespace CustomLists
                     MoveIndexOver(i);
                     count--;
                 }
-
-
         }
         private void MoveIndexOver(int intex)
         {
@@ -100,10 +92,7 @@ namespace CustomLists
                 array[i] = array[i + 1];
             }
             array[i] = default(T);
-
         }
-       
-       
         public IEnumerator GetEnumerator()
         {
             for(int index = 0; index<Count; index++)
@@ -115,8 +104,13 @@ namespace CustomLists
        public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-
-
+            string placeholder;
+            for(int i =0; i<Count; i++)
+            {
+                sb.Append(array[i] +",");
+            }
+            placeholder = sb.ToString();
+            return placeholder;
         }
        
     }

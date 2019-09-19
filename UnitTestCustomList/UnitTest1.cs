@@ -119,7 +119,7 @@ namespace UnitTestCustomList
         public void ToString_TakeInItems_ReturnThemAsAString()
         {
             CustomList<int> Numbers = new CustomList<int>();
-            string expected = "5,4,3,2,1,0";
+            string expected = "5,4,3,2,1,0,";
             string actual;
 
             Numbers.Add(5);
@@ -149,7 +149,7 @@ namespace UnitTestCustomList
         public void ToString_TakeInItemsAndRemoveItems_ReturnThemAsAString()
         {
             CustomList<int> Numbers = new CustomList<int>();
-            string expected = "5,4,2,0";
+            string expected = "5420";
             string actual;
 
             Numbers.Add(5);
