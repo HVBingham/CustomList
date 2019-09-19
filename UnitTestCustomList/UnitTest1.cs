@@ -168,16 +168,10 @@ namespace UnitTestCustomList
         {
             CustomList<int> list1 = new CustomList<int>();
             CustomList<int> list2 = new CustomList<int>();
-            CustomList<int> expected = new CustomList<int>();
-            CustomList<int> combinedLists = new CustomList<int>();
-            expected.Add(1);
-            expected.Add(2);
-            expected.Add(3);
-            expected.Add(4);
-            expected.Add(5);
-            expected.Add(6);
-            CustomList<int> actual = new CustomList<int>();
-
+            int expected = 4;
+            int actual;
+            
+            CustomList<int> combinedLists= new CustomList<int>();
             list1.Add(1);
             list1.Add(2);
             list1.Add(3);
@@ -185,8 +179,7 @@ namespace UnitTestCustomList
             list2.Add(5);
             list2.Add(6);
             combinedLists= list1+list2;
-            actual = combinedLists;
-
+            actual = combinedLists[3];
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
@@ -227,9 +220,83 @@ namespace UnitTestCustomList
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
+        public void SubtractLists_RemoveSameValue_RemoveOneListFromAnother()
+        {
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 4, 5, 2 };
+            CustomList<int> subtractedLists = new CustomList<int>();
+            int expected =3 ;
+            int actual;
+
+           
+            subtractedLists = list1 - list2;
+            actual = subtractedLists[1];
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void SubtractLists_RemoveSameValue_GetCountWhenOneListIsRemovedFromAnother()
+        {
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList<int>() { 4, 5, 2 };
+            CustomList<int> subtractedLists = new CustomList<int>();
+            int expected = 2;
+            int actual;
+
+
+            subtractedLists = list1 - list2;
+            actual = subtractedLists.Count;
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void SubtractLists_RemoveSameValue_GetCountWhenOneListIsRemoved()
+        {
+            CustomList<int> list1 = new CustomList<int>() { 1, 2, 3,5,4,6 };
+            CustomList<int> list2 = new CustomList<int>() { 4, 5, 2 };
+            CustomList<int> subtractedLists = new CustomList<int>();
+            int expected = 3;
+            int actual;
+
+
+            subtractedLists = list1 - list2;
+            actual = subtractedLists.Count;
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ZipLists_CombineLists_CpombineListsInOrder()
+        {
+            CustomList<int> list1 = new CustomList<int>() { 1, 3, 5 };
+            CustomList<int> list2 = new CustomList<int>() { 2, 4, 6 };
+            CustomList<int> zipedLists = new CustomList<int>();
+            int expected = 2;
+            int actual;
+
+
+            zipedLists=zipedLists.Zip(list1, list2);
+            actual = zipedLists[1];
+
+            Assert.AreEqual(expected, actual);
+        }
+       [TestMethod]
+       public void ZipLists_CombineBothLists_GetCountWhenOneListsAreZipped()
+        {
+            CustomList<int> list1 = new CustomList<int>() { 1, 3, 5 };
+            CustomList<int> list2 = new CustomList<int>() { 2, 4, 6 };
+            CustomList<int> zipedLists = new CustomList<int>();
+            int expected = 6;
+            int actual;
+
+            zipedLists=zipedLists.Zip(list1, list2);
+            actual = zipedLists.Count;
+            Assert.AreEqual(expected, actual);
+                
+        }
+    }
+
+
         
 
-    }
-        
+}       
     
-}

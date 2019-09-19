@@ -121,16 +121,28 @@ namespace CustomLists
             }
             return placeHolder;
         }
-        public static CustomList<T> operator - (CustomList<T> list1, CustomList<T> list2)
+        public static CustomList<T> operator -(CustomList<T> list1, CustomList<T> list2)
         {
             CustomList<T> placeholder = list1;
-            for(int i=0; i<list2.Count; i++)
+            for (int i = 0; i < list2.Count; i++)
             {
                 placeholder.Remove(list2[i]);
             }
             return placeholder;
         }
-    
+        public CustomList<T> Zip(CustomList<T>list1,CustomList<T> list2)
+        {
+            CustomList<T> placeHolder = new CustomList<T>();
+            for(int i=0; i<list1.Count; i++)
+            {
+                placeHolder.Add(list1[i]);
+                placeHolder.Add(list2[i]);
+            }
+            return placeHolder;
+           
+        }
+
+
     }
 
 }
